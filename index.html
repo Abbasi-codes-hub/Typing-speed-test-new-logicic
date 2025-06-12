@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MonkeyType Clone</title>
+    <link rel="icon" href="Now___1_-removebg-preview.png" type="image/png" />
+     <!-- Optional .ico fallback -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="h-screen flex flex-col items-center justify-center p-4">
+    <div class="max-w-4xl w-full">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-8">
+            <div class="text-2xl font-bold" style="color: var(--main-color)">monkeytype</div>
+            <div class="flex space-x-4">
+                <button id="theme-btn" class="text-sm" style="color: var(--sub-color)">theme</button>
+                <button id="settings-btn" class="text-sm" style="color: var(--sub-color)">settings</button>
+            </div>
+        </div>
+        
+        <!-- Test Modes -->
+        <div id="modes" class="flex justify-center space-x-4 mb-6">
+            <button class="mode-btn active" data-time="15">15</button>
+            <button class="mode-btn" data-time="30">30</button>
+            <button class="mode-btn" data-time="60">60</button>
+            <button class="mode-btn" data-time="120">120</button>
+        </div>
+        
+        <!-- Words Container -->
+        <div id="words-container" class="relative text-2xl leading-relaxed mb-8 h-32 overflow-hidden" style="color: var(--sub-color)">
+            <div id="words"></div>
+            <div id="caret"></div>
+        </div>
+        
+        <!-- Stats -->
+        <div class="flex justify-center space-x-8 text-center mb-8">
+            <div>
+                <div class="text-sm" style="color: var(--sub-color)">wpm</div>
+                <div id="wpm" class="text-3xl font-bold">0</div>
+            </div>
+            <div>
+                <div class="text-sm" style="color: var(--sub-color)">acc</div>
+                <div id="accuracy" class="text-3xl font-bold">100</div>
+            </div>
+            <div>
+                <div class="text-sm" style="color: var(--sub-color)">time</div>
+                <div id="time" class="text-3xl font-bold">15</div>
+            </div>
+        </div>
+        
+        <!-- Restart Button -->
+        <div class="flex justify-center">
+            <button id="restart-btn" class="px-4 py-2 rounded text-sm" style="background-color: var(--main-color); color: var(--bg-color)">restart (tab)</button>
+        </div>
+    </div>
+    
+    <!-- Theme Selector (Hidden by default) -->
+    <div id="theme-selector" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-gray-800 p-6 rounded-lg max-w-md w-full">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-bold" style="color: var(--main-color)">theme</h2>
+                <button id="close-theme" class="text-2xl">&times;</button>
+            </div>
+            <div class="grid grid-cols-3 gap-4">
+                <div class="theme-option p-4 rounded cursor-pointer" data-theme="default">
+                    <div class="h-16 rounded mb-2" style="background: linear-gradient(135deg, #1a1a1a 50%, #e2b714 50%)"></div>
+                    <div class="text-center">default</div>
+                </div>
+                <div class="theme-option p-4 rounded cursor-pointer" data-theme="dark">
+                    <div class="h-16 rounded mb-2" style="background: linear-gradient(135deg, #0e0e0e 50%, #d1d0c5 50%)"></div>
+                    <div class="text-center">dark</div>
+                </div>
+                <div class="theme-option p-4 rounded cursor-pointer" data-theme="light">
+                    <div class="h-16 rounded mb-2" style="background: linear-gradient(135deg, #ffffff 50%, #e2b714 50%)"></div>
+                    <div class="text-center">light</div>
+                </div>
+                <div class="theme-option p-4 rounded cursor-pointer" data-theme="nord">
+                    <div class="h-16 rounded mb-2" style="background: linear-gradient(135deg, #2e3440 50%, #88c0d0 50%)"></div>
+                    <div class="text-center">nord</div>
+                </div>
+                <div class="theme-option p-4 rounded cursor-pointer" data-theme="solarized">
+                    <div class="h-16 rounded mb-2" style="background: linear-gradient(135deg, #002b36 50%, #268bd2 50%)"></div>
+                    <div class="text-center">solarized</div>
+                </div>
+                <div class="theme-option p-4 rounded cursor-pointer" data-theme="matrix">
+                    <div class="h-16 rounded mb-2" style="background: linear-gradient(135deg, #000000 50%, #00ff41 50%)"></div>
+                    <div class="text-center">matrix</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+   <script src="script.js"></script>
+</body>
+</html>

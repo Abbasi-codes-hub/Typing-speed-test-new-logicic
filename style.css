@@ -1,0 +1,60 @@
+
+       :root {
+            --bg-color: #1a1a1a;
+            --main-color: #e2b714;
+            --caret-color: #e2b714;
+            --sub-color: #646669;
+            --text-color: #d1d0c5;
+            --error-color: #ca4754;
+            --error-extra-color: #7e2a33;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Roboto Mono', monospace;
+            overflow: hidden;
+        }
+        
+        .active-word {
+            position: relative;
+        }
+        
+        .active-word::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--main-color);
+        }
+        
+        .correct {
+            color: var(--text-color);
+        }
+        
+        .incorrect {
+            color: var(--error-color);
+        }
+        
+        .extra {
+            color: var(--error-extra-color);
+        }
+        
+        #caret {
+            position: absolute;
+            width: 2px;
+            height: 1.2em;
+            background-color: var(--caret-color);
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .hidden {
+            display: none;
+        }
